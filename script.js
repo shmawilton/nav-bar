@@ -17,7 +17,7 @@ function fixNav() {
     }
 
     if (counts < 1) {
-        if (window.scrollY > content_to_blur.offsetHeight + 1200) {
+        if (window.scrollY > content_to_blur.offsetHeight + 1200 || window.scrollY > content_to_blur.offsetHeight + 950) {
             content_to_blur.classList.add('blur-active');
             popup.classList.add("active");
         } else {
@@ -58,13 +58,6 @@ function toggle1() {
     content_to_blur.classList.remove('blur-active');
 }
 
-
-// document.querySelectorAll('a[href^="#"]').forEach(link => {
-//     link.addEventListener('click', event => {
-//         event.preventDefault();
-//         history.replaceState(null, null, link.getAttribute('href'));
-//     });
-// });
 
 
 // prevening the #about etc from showing in the url

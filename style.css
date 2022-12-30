@@ -312,7 +312,12 @@ hr {
 
 .about {
     padding: 6rem 7%;
-    
+}
+
+@media screen and (max-width: 768px) {
+    .tips {
+        font-size: 1.1rem;
+    }
 }
 
 .main-about {
@@ -368,6 +373,7 @@ hr {
     width: 120px;
     height: 60px;
     border-top-left-radius: 30px;
+    margin-top: 10px;
 }
 .button:hover {
     background: linear-gradient(to left, var(--link-color), var(--secondary-color));
