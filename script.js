@@ -22,8 +22,6 @@ function fixNav() {
         content_to_blur.classList.remove('blur-active');
         popup.classList.remove("active");
     }
-
-    counts++;
     
 }
 
