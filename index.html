@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
 </head>
-<body>
+<body class="">
     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-emoji-heart-eyes"
         viewBox="0 0 16 16">
         <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
@@ -16,7 +16,7 @@
     </svg>
 
 
-    <nav class="nav">
+    <nav class="nav ">
         <div class="container">
             <h1 class="logo" id="logo"><img src="logo.png" alt=""><a href="/index.html">Health</a></h1>
 
@@ -131,7 +131,7 @@
         
     </section>
 
-    <section class="contents">
+    <section id="contents-1" class="contents">
         <div class="contents-container">
             <div class="content-title">
                 <h1 class="contents-title">Services</h1>
@@ -174,7 +174,7 @@
                 </div>
             </div>
             
-            <div class="content" id="exercise">
+            <div class="content " id="exercise">
                 <div class="content-title">
                     <h1 class="about"><i class="bi bi-hash"></i>Tips For Exercises <i class="bi bi-activity"></i></h1>
                     <div class="content-desc">
@@ -199,22 +199,31 @@
                             <p>Warm up and cool down: Start and end your workout with a few minutes of light activity to warm up and cool down your
                             muscles. This can help prevent injury and improve your performance.</p>
                         </div>
-                        <div class="content-p">
+                        <div class="content-p content-p1">
                             <i class="bi bi-5-circle-fill"></i>
                             <p>Listen to your body: It's important to pay attention to your body's signals and not push yourself too hard. If you feel
                             pain or discomfort, take a break or modify your workout.</p>
                         </div>
                     </div>
 
-                    <div class="summery">
-                        <p><span>Remember</span>, the most important thing is to find an exercise that you enjoy and that fits into your lifestyle. By making
-                        exercise a regular part of your routine, you can improve your physical and mental health and feel your best.</p>
-                    </div>
+                    
                 </div>
             </div>
             
         </div>
     </section>
+    <div id="toast">
+        <div id="popup" class="summery">
+            <p><span>Remember</span>, the most important thing is to find an exercise that you enjoy and that fits into your
+                lifestyle. By making
+                exercise a regular part of your routine, you can improve your physical and mental health and feel your best.
+            </p>
+            
+            <div onclick="toggle1()" class="button" id="close">
+                <p id="myReadMore">Close </p>
+            </div>
+        </div>
+    </div>
 
     <footer id="footerWrapper" class="footer5">
         <div class="container">

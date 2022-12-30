@@ -27,11 +27,16 @@
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
 }
+html {
+    scroll-behavior: smooth;
+    transition: scroll-behavior .3s ease-in-out;
+}
 
 body {
     font-family: 'Open Sans', sans-serif;
     color: var(--primary-color);
 }
+
 
 a {
     text-decoration: none;
@@ -73,12 +78,14 @@ a {
         /* left: 50%; */
         right: -50%;
         background: var(--background);
+        filter: opacity(.97);
         justify-content: center;
         align-items: center;
         padding: 20px 0;
         transition: all .3s ease-in-out;
         gap: 20px;
         font-size: large;
+        box-shadow: 8px 2px 12px -10px rgba(0, 0, 0, 0.53);
     }
 }
 
@@ -243,6 +250,7 @@ a {
 
 .hero {
     background-image: url('health.png'); 
+    
     background-repeat: no-repeat;
     background-size: cover;
     background-position: bottom center; 
@@ -350,6 +358,7 @@ hr {
 
 .button {
     background: var(--primary-color);
+    text-align: center;
     padding: 1rem;
     font-size: 1.5rem;
     font-weight: 700;
@@ -365,6 +374,17 @@ hr {
     color: var(--background);
     font-size: large;
     font-weight: 700;
+    transform: scale(.98);
+}
+
+@media screen and (max-width: 768px) {
+    .button {
+        padding: .8rem;
+        font-size: 1.1rem;
+        width: 120px;
+        height: 50px;
+        margin-top: 20px;
+    }
 }
 
 .about-content a:hover {
@@ -445,10 +465,15 @@ section.contents h1{
     font-weight: 700;
     margin-bottom: 0;
 }
-
-.content {
-    margin-top: 50px;
+.contents-container {
+    padding: 50px;
 }
+
+/* .contents {
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+} */
 
 
 .content-desc {
@@ -460,7 +485,7 @@ section.contents h1{
 }
 
 .content-p {
-    width: 90%;
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -468,6 +493,7 @@ section.contents h1{
     background-color: var(--secondary-color);
     border-top-left-radius: 40px;
     border-bottom-right-radius: 40px;
+
     padding: 25px;
     transition: .4s ease-in-out;
     box-shadow: 8px 2px 12px -10px rgba(0, 0, 0, 0.53);
@@ -480,7 +506,7 @@ section.contents h1{
     box-shadow: 8px 2px 61px -10px rgba(0, 0, 0, 0.53);
         -webkit-box-shadow: 8px 2px 61px -10px rgba(0, 0, 0, 0.53);
         -moz-box-shadow: 8px 2px 61px -10px rgba(0, 0, 0, 0.53);
-    transform: scale(1.1);
+    font-size: 1rem;
 }
 
 .summery {
@@ -488,7 +514,36 @@ section.contents h1{
     padding: 20px;
     border-radius: 20px;
     margin-top: 40px;
+    position: fixed;
+    top: -40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 350px;
+    padding: 20px;
+    transition: top .5s ease-in-out;
 }
+.blur-active {
+    filter: blur(5px);
+    pointer-events: none;
+    -webkit-touch-callout: none;
+        /* iOS Safari */
+        -webkit-user-select: none;
+        /* Safari */
+        -khtml-user-select: none;
+        /* Konqueror HTML */
+        -moz-user-select: none;
+        /* Firefox */
+        -ms-user-select: none;
+        /* Internet Explorer/Edge */
+        user-select: none;
+        /* Non-prefixed version, currently supported by Chrome and Opera */
+}
+
+.summery.active {
+    top: 50%;
+}
+
+
 
 .summery p {
     font-size: 1rem;

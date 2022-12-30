@@ -1,0 +1,12 @@
+<ifModule mod_rewrite.c>
+    #conditions to hide .html extension and button links from the user-friendly
+
+    RewriteEngine On
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^([^\.]+)$ $1.html [NC,L]
+
+
+
+
+
+</ifModule>

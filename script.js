@@ -1,7 +1,10 @@
 const nav = document.querySelector('.nav');
+const popup = document.getElementById("popup");
 const menu = document.querySelector('.nav ul');
 const content = document.querySelector('.paragraph');
 const read_more = document.querySelector('#read-more');
+const content_to_blur = document.querySelector('.contents');
+const counts = 0;
 window.addEventListener('scroll', fixNav);
 
 function fixNav() {
@@ -12,6 +15,19 @@ function fixNav() {
         nav.classList.remove('active');
         menu.classList.remove('active');
     }
+
+    if (counts < 1) {
+        if (window.scrollY > content_to_blur.offsetHeight + 1200) {
+            content_to_blur.classList.add('blur-active');
+            popup.classList.add("active");
+        } else {
+            content_to_blur.classList.remove('blur-active');
+            popup.classList.remove("active");
+        }
+    }
+
+    counts++;
+    
 }
 
 read_more.addEventListener('click', () => {
@@ -37,3 +53,33 @@ toggle.addEventListener('click', () => {
     toggle.classList.toggle('active');
 });
 
+function toggle1() {
+    popup.classList.remove("active");
+    content_to_blur.classList.remove('blur-active');
+}
+
+
+// document.querySelectorAll('a[href^="#"]').forEach(link => {
+//     link.addEventListener('click', event => {
+//         event.preventDefault();
+//         history.replaceState(null, null, link.getAttribute('href'));
+//     });
+// });
+
+
+// prevening the #about etc from showing in the url
+
+document.querySelectorAll('a[href^="#"]').forEach(link => {
+    link.addEventListener('click', event => {
+        event.preventDefault();
+        const targetId = link.getAttribute('href');
+        const target = document.querySelector(targetId);
+        if (target) {
+            const top = target.offsetTop;
+            window.scrollTo({
+                top,
+                behavior: 'smooth',
+            });
+        }
+    });
+});
