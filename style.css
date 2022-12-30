@@ -51,7 +51,7 @@ a {
 .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 50px;
+    padding: 0 clamp(1rem, 2.5vw, 2rem); ;
 }
 
 
@@ -64,42 +64,14 @@ a {
     transition: all .3s ease-in-out;
 }
 
-@media screen and (max-width: 768px) {
-    .nav .container {
-        flex-direction: column;
-        padding: 10px 0;
-    }
-    .nav ul.nav-collapse {
-        flex-direction: column;
-        width: 50%;
-        height: 100vh;
-        position: absolute;
-        top: 0;
-        /* left: 50%; */
-        right: -50%;
-        background: var(--background);
-        filter: opacity(.97);
-        justify-content: center;
-        align-items: center;
-        padding: 20px 0;
-        transition: all .3s ease-in-out;
-        gap: 20px;
-        font-size: large;
-        box-shadow: 8px 2px 12px -10px rgba(0, 0, 0, 0.53);
-    }
-}
 
-
- /*style the toggle button together with its icon-bars spans to
- look like bars when the screen is small and when clicked they change to an
- X with a transition  */
 
 
 #toggle-button {
     /* display: block; */
     cursor: pointer;
     position: absolute;
-    top: 30px;
+    top: 10px;
     right: 20px;
     border: 1.5px solid var(--link-active);
     border-radius: 5px;
@@ -236,15 +208,46 @@ a {
     margin-left: 0;
 }
 
-/* Hide the toggle button when the screen is large */
-/* @media (min-width: 768px) {
-    #toggle-button {
-        display: none;
+@media screen and (max-width: 768px) {
+    .nav {
+        display: flex;
+        justify-content: space-between;
     }
-} */
+    .nav .container {
+        flex-direction: column;
+        padding: 8px 0;
+    }
+    .nav ul.nav-collapse {
+        flex-direction: column;
+        width: 50%;
+        height: 100vh;
+        position: absolute;
+        top: 0;
+        /* left: 50%; */
+        right: -50%;
+        background: var(--background);
+        filter: opacity(.97);
+        justify-content: center;
+        align-items: center;
+        padding: 20px 0;
+        transition: all .3s ease-in-out;
+        gap: 20px;
+        font-size: large;
+        box-shadow: 8px 2px 12px -10px rgba(0, 0, 0, 0.53);
+    }
+    .logo {
+        font-size: 1.2rem;
+    }
 
-
-
+    #logo > img{
+        width: 40px;
+        height: 40px;
+    }
+    #toggle-button span {
+        width: 20px;
+        height: 1.5px;
+    }
+}
 
 
 
@@ -277,36 +280,16 @@ a {
 }
 
 .hero h1 {
-    font-size: 3rem;
+    font-size: clamp(1.5rem, 5vw, 3rem) ;
     font-weight: 800;
     margin: -20px 0 20px;
 }
 
 .hero p {
-    font-size: 1.5rem;
+    font-size:  clamp(.9rem, 5vw, 1.5rem) ;
     font-weight: 400;
     margin-bottom: 20px;
-    line-height: 1.5rem;
-}
-
-
-
-@media  screen and (max-width: 768px) {
-    .hero h1 {
-            font-size: 2rem;
-        }
-    
-        .hero p {
-            font-size: 1rem;
-        }
-}
-
-
-hr {
-    width: calc(100% - 60px);
-    height: 5px;
-    border-radius: 10px;
-    background-color: var(--primary-color);
+    line-height: 1.2rem;
 }
 
 
@@ -314,66 +297,50 @@ hr {
     padding: 6rem 7%;
 }
 
-@media screen and (max-width: 768px) {
-    .tips {
-        font-size: 1.1rem;
-    }
-}
-
 .main-about {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 15px;
     flex-wrap: wrap;
     
 }
 
-
-
 .inner-about {
-    flex: 1 1 45rem;
+    flex: 1 1;
 }
 
-.inner-about .inner-about-image img {
+
+.about-content {
     width: 100%;
 }
 
-.about-content {
-    width: 80%;
-}
-
 .about-content h1 {
-    font-size: 2rem;
+    font-size: clamp(1.4rem, 5vw, 2rem);
     margin-bottom: 15px;
 }
 
 .about-content p {
-    font-size: 1rem;
+    font-size: clamp(.7rem, 5vw, 1rem );
     margin-bottom: 30px;
 }
 
-.about-content a {
-    /* background: var(--secclr); */
-    padding: 1rem 3rem;
-    font-size: 1.5rem;
-    color: white;
-    transition: .5s;
-}
+
 
 .button {
     background: var(--primary-color);
-    text-align: center;
-    padding: 1rem;
-    font-size: 1.5rem;
+    padding:15px 15px;
+    /* font-size: clamp(.75rem, 5vw, 1.1rem); */
     font-weight: 700;
     color: white;
     transition: .5s ease-in-out;
     cursor: pointer;
-    width: 120px;
-    height: 60px;
+    width: clamp(100px, 5vw, 120px);
+    height: clamp(50px, 5vw,50px);
     border-top-left-radius: 30px;
     margin-top: 10px;
+}
+.button p{
+    font-size: clamp(12px, 5vw, 1rem);
 }
 .button:hover {
     background: linear-gradient(to left, var(--link-color), var(--secondary-color));
@@ -383,15 +350,6 @@ hr {
     transform: scale(.98);
 }
 
-@media screen and (max-width: 768px) {
-    .button {
-        padding: .8rem;
-        font-size: 1.1rem;
-        width: 120px;
-        height: 50px;
-        margin-top: 20px;
-    }
-}
 
 .about-content a:hover {
     background: transparent;
@@ -399,14 +357,12 @@ hr {
     color: black;
 }
 
-#more {
-    display: none;
+.service-container {
+    padding: 20px;
 }
 
-
-
 .services-title {
-    font-size: 1.3rem;
+    font-size: clamp(1.1rem, 5vw, 1.3rem);
     font-weight: 700;
     margin-bottom: 20px;
 }
@@ -444,21 +400,15 @@ hr {
 }
 
 .service-icon {
-    font-size: 3rem;
+    font-size: clamp(1.5rem, 5vw, 3rem);
     margin-bottom: 20px;
     color: var(--link-active);
-}
-.service-title {
-    font-size: 1rem;
-    font-weight: 700;
-    margin-bottom: 20px;
-    
 }
 
 section.contents {
     margin-top: 50px;
-    padding: 50px;
     background-color: var(--link-color);
+    padding: 40px;
     
 }
 
@@ -467,12 +417,16 @@ section.contents h1{
 }
 
 .contents-title {
-    font-size: 2rem;
+    font-size: clamp(1.5rem, 5vw, 2rem);
     font-weight: 700;
     margin-bottom: 0;
 }
-.contents-container {
-    padding: 50px;
+
+
+@media screen and (max-width: 768px) {
+    .tips {
+        font-size: 1.1rem;
+    }
 }
 
 /* .contents {
@@ -500,7 +454,7 @@ section.contents h1{
     border-top-left-radius: 40px;
     border-bottom-right-radius: 40px;
 
-    padding: 25px;
+    padding: 15px;
     transition: .4s ease-in-out;
     box-shadow: 8px 2px 12px -10px rgba(0, 0, 0, 0.53);
         -webkit-box-shadow: 8px 2px 12px -10px rgba(0, 0, 0, 0.53);
@@ -512,7 +466,6 @@ section.contents h1{
     box-shadow: 8px 2px 61px -10px rgba(0, 0, 0, 0.53);
         -webkit-box-shadow: 8px 2px 61px -10px rgba(0, 0, 0, 0.53);
         -moz-box-shadow: 8px 2px 61px -10px rgba(0, 0, 0, 0.53);
-    font-size: 1rem;
 }
 
 .summery {
@@ -524,8 +477,7 @@ section.contents h1{
     top: -40%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 350px;
-    padding: 20px;
+    width: clamp(230px, 5vw, 350px);
     transition: top .5s ease-in-out;
 }
 .blur-active {
