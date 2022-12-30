@@ -4,7 +4,6 @@ const menu = document.querySelector('.nav ul');
 const content = document.querySelector('.paragraph');
 const read_more = document.querySelector('#read-more');
 const content_to_blur = document.querySelector('.contents');
-const counts = 0;
 window.addEventListener('scroll', fixNav);
 
 function fixNav() {
@@ -16,14 +15,12 @@ function fixNav() {
         menu.classList.remove('active');
     }
 
-    if (counts < 1) {
-        if (window.scrollY > content_to_blur.offsetHeight + 1200 || window.scrollY > content_to_blur.offsetHeight + 950) {
-            content_to_blur.classList.add('blur-active');
-            popup.classList.add("active");
-        } else {
-            content_to_blur.classList.remove('blur-active');
-            popup.classList.remove("active");
-        }
+    if (window.scrollY > content_to_blur.offsetHeight + 1200 || window.scrollY > content_to_blur.offsetHeight + 950) {
+        content_to_blur.classList.add('blur-active');
+        popup.classList.add("active");
+    } else {
+        content_to_blur.classList.remove('blur-active');
+        popup.classList.remove("active");
     }
 
     counts++;
